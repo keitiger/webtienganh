@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace WebHocTiengAnh.Models
 {
-    public class Lesson
+    public class User
     {
         public int Id { get; set; }
-        public int TopicId { get; set; }
-        public string NameLesson { get; set; }
-        public int RequireExp { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public List<Lesson> Lessons { get; set; }
     }
 }

@@ -12,5 +12,9 @@ namespace WebHocTiengAnh.Models
         public int Question { get; set; }
         public int Media { get; set; }
         public int TrueAnswer { get; set; }
+        public ExerciseType ExerciseType { get; set; }
+        public List<Answer> Answers { get; set; }
+        public List<LessonExercise> LessonExercises { get; set; }
+
     }
 }

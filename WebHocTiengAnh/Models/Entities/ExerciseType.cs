@@ -9,5 +9,6 @@ namespace WebHocTiengAnh.Models
     {
         public int Id { get; set; }
         public int NameExerciseType { get; set; }
+        public List<Exercise> Exercises { get; set; }
     }
 }
