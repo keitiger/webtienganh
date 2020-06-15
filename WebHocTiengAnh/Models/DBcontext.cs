@@ -30,5 +30,19 @@ namespace WebHocTiengAnh.Models
         public DbSet<ExerciseType> ExerciseTypes { get; set; }
         public DbSet<LessonExercise> LessonExercises { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
+
+        //Tuan//
+        /*
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Answer>().ToTable("Answer");
+            modelBuilder.Entity<Exercise>().ToTable("Exercise");
+            modelBuilder.Entity<ExerciseType>().ToTable("ExerciseType");
+            modelBuilder.Entity<Lesson>().ToTable("LessonExercise");
+            modelBuilder.Entity<LessonExercise>().ToTable("LessonExercise");
+            modelBuilder.Entity<Topic>().ToTable("Topic");
+            modelBuilder.Entity<User>().ToTable("User");
+        }
+        //End-Tuan//*/
     }
 }
