@@ -14,7 +14,6 @@ namespace WebHocTiengAnh.Models.Configuration
             builder.ToTable("Lessons");
             builder.HasKey(x => x.Id);
             builder.HasOne(x => x.Topic).WithMany(x => x.Lessons).HasForeignKey(x => x.TopicId);
-            builder.HasOne(x => x.User).WithMany(x => x.Lessons).HasForeignKey(x => x.UserId);
         }
     }
 }

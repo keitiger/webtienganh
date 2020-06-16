@@ -21,6 +21,7 @@ namespace WebHocTiengAnh.Models
             modelBuilder.ApplyConfiguration(new LessonConfiguration());
             modelBuilder.ApplyConfiguration(new TopicConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new UserLessonConfiguration());
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<User> Users { get; set; }

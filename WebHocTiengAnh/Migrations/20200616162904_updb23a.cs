@@ -2,7 +2,7 @@
 
 namespace WebHocTiengAnh.Migrations
 {
-    public partial class updb : Migration
+    public partial class updb23a : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -74,7 +74,6 @@ namespace WebHocTiengAnh.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(nullable: false),
                     TopicId = table.Column<int>(nullable: false),
                     NameLesson = table.Column<string>(nullable: true),
                     RequireExp = table.Column<int>(nullable: false)
@@ -86,12 +85,6 @@ namespace WebHocTiengAnh.Migrations
                         name: "FK_Lessons_Topic_TopicId",
                         column: x => x.TopicId,
                         principalTable: "Topic",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Lessons_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -142,6 +135,32 @@ namespace WebHocTiengAnh.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "UserLessons",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(nullable: false),
+                    LessonId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserLessons", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserLessons_Lessons_LessonId",
+                        column: x => x.LessonId,
+                        principalTable: "Lessons",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserLessons_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Answers_ExerciseId",
                 table: "Answers",
@@ -168,8 +187,13 @@ namespace WebHocTiengAnh.Migrations
                 column: "TopicId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lessons_UserId",
-                table: "Lessons",
+                name: "IX_UserLessons_LessonId",
+                table: "UserLessons",
+                column: "LessonId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserLessons_UserId",
+                table: "UserLessons",
                 column: "UserId");
         }
 
@@ -182,19 +206,22 @@ namespace WebHocTiengAnh.Migrations
                 name: "LessonExercises");
 
             migrationBuilder.DropTable(
+                name: "UserLessons");
+
+            migrationBuilder.DropTable(
                 name: "Exercises");
 
             migrationBuilder.DropTable(
                 name: "Lessons");
 
             migrationBuilder.DropTable(
+                name: "Users");
+
+            migrationBuilder.DropTable(
                 name: "ExerciseTypes");
 
             migrationBuilder.DropTable(
                 name: "Topic");
-
-            migrationBuilder.DropTable(
-                name: "Users");
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebHocTiengAnh.Models.Entities;
 
 namespace WebHocTiengAnh.Models
 {
@@ -10,6 +11,6 @@ namespace WebHocTiengAnh.Models
         public int Id { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-        public List<Lesson> Lessons { get; set; }
+        public List<UserLesson> UserLessons { get; set; }
     }
 }
