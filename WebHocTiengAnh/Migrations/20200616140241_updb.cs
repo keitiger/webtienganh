@@ -2,7 +2,7 @@
 
 namespace WebHocTiengAnh.Migrations
 {
-    public partial class Kint : Migration
+    public partial class updb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace WebHocTiengAnh.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NameExerciseType = table.Column<int>(nullable: false)
+                    NameExerciseType = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -53,9 +53,9 @@ namespace WebHocTiengAnh.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ExerciseTypeId = table.Column<int>(nullable: false),
-                    Question = table.Column<int>(nullable: false),
-                    Media = table.Column<int>(nullable: false),
-                    TrueAnswer = table.Column<int>(nullable: false)
+                    Question = table.Column<string>(nullable: true),
+                    Media = table.Column<string>(nullable: true),
+                    TrueAnswer = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -103,7 +103,7 @@ namespace WebHocTiengAnh.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ExerciseId = table.Column<int>(nullable: false),
-                    AnswerText = table.Column<int>(nullable: false)
+                    AnswerText = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

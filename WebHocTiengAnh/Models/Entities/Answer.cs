@@ -9,7 +9,7 @@ namespace WebHocTiengAnh.Models
     {
         public int Id { get; set; }
         public int ExerciseId { get; set; }
-        public int AnswerText { get; set; }
+        public string AnswerText { get; set; }
         public Exercise Exercise { get; set; }
     }
 }

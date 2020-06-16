@@ -25,8 +25,8 @@ namespace WebHocTiengAnh.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AnswerText")
-                        .HasColumnType("int");
+                    b.Property<string>("AnswerText")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ExerciseId")
                         .HasColumnType("int");
@@ -48,14 +48,14 @@ namespace WebHocTiengAnh.Migrations
                     b.Property<int>("ExerciseTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Media")
-                        .HasColumnType("int");
+                    b.Property<string>("Media")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Question")
-                        .HasColumnType("int");
+                    b.Property<string>("Question")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TrueAnswer")
-                        .HasColumnType("int");
+                    b.Property<string>("TrueAnswer")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -71,8 +71,8 @@ namespace WebHocTiengAnh.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("NameExerciseType")
-                        .HasColumnType("int");
+                    b.Property<string>("NameExerciseType")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
