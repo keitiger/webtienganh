@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebHocTiengAnh.Models.Configuration;
+using WebHocTiengAnh.Models.Entities;
 
 namespace WebHocTiengAnh.Models
 {
@@ -31,6 +32,7 @@ namespace WebHocTiengAnh.Models
         public DbSet<ExerciseType> ExerciseTypes { get; set; }
         public DbSet<LessonExercise> LessonExercises { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
+        public DbSet<WebHocTiengAnh.Models.Entities.UserLesson> UserLesson { get; set; }
 
         //Tuan//
         /*
