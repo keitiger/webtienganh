@@ -5,11 +5,17 @@
     Layout = "~/Views/Shared/_Layout_For_AdminPage.cshtml";
 }
 
-    <h1>Quản lý đáp án</h1>
+<h1>Quản lý đáp án</h1>
 
 <p>
     <a asp-action="Create">Tạo mới</a>
 </p>
+<form asp-controller="Answers" asp-action="Index" method="get">
+<p>
+    Tìm kiếm đáp án: <input type="text" name="SearchString">
+    <input type="submit" value="Tìm kiếm" />
+</p>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -23,20 +29,21 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnswerText)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Exercise.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Chỉnh sửa</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Chi tiết</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnswerText)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Exercise.Id)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Chỉnh sửa</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Chi tiết</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

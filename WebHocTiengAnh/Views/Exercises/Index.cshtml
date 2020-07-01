@@ -10,6 +10,12 @@
 <p>
     <a asp-action="Create">Tạo mới</a>
 </p>
+<form asp-controller="Exercises" asp-action="Index" method="get">
+    <p>
+        Tìm kiếm câu hỏi: <input type="text" name="SearchString">
+        <input type="submit" value="Tìm kiếm" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -41,12 +47,12 @@
                 @Html.DisplayFor(modelItem => item.TrueAnswer)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ExerciseType.Id)
+                @Html.DisplayFor(modelItem => item.ExerciseType.NameExerciseType)
             </td>
             <td>
-                <a asp-action="Chỉnh sửa" asp-route-id="@item.Id">Chỉnh sửa</a> |
-                <a asp-action="Chi tiết" asp-route-id="@item.Id">Chi tiết</a> |
-                <a asp-action="Xóa" asp-route-id="@item.Id">Xóa</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Chỉnh sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Chi tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
             </td>
         </tr>
 }

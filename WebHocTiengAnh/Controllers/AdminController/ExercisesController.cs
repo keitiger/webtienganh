@@ -19,10 +19,24 @@ namespace WebHocTiengAnh.Controllers.AdminController
         }
 
         // GET: Exercises
-        public async Task<IActionResult> Index()
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
+        {
+            return "From [HttpPost]Index: filter on " + searchString;
+        }
+        public async Task<IActionResult> Index(string searchString)
         {
             var dBcontext = _context.Exercises.Include(e => e.ExerciseType);
-            return View(await dBcontext.ToListAsync());
+            var exercises = from m in _context.Exercises
+                          select m;
+            
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                exercises = exercises.Where(s => s.Question.Contains(searchString)); ;
+            }
+            /*return View(await dBcontext.ToListAsync());*/
+            return View(await exercises.ToListAsync());
         }
 
         // GET: Exercises/Details/5

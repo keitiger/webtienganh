@@ -17,11 +17,24 @@ namespace WebHocTiengAnh.Controllers.AdminController
         {
             _context = context;
         }
-
-        // GET: Topics
-        public async Task<IActionResult> Index()
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
         {
-            return View(await _context.Topics.ToListAsync());
+            return "From [HttpPost]Index: filter on " + searchString;
+        }
+        // GET: Topics
+        public async Task<IActionResult> Index(string searchString)
+        {
+            var topics = from m in _context.Topics
+                            select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                topics = topics.Where(s => s.NameTopic.Contains(searchString)); ;
+            }
+           
+            return View(await topics.ToListAsync());
+            /*return View(await _context.Topics.ToListAsync());*/
         }
 
         // GET: Topics/Details/5

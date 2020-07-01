@@ -10,6 +10,12 @@
 <p>
     <a asp-action="Create">Tạo mới</a>
 </p>
+<form asp-controller="Users" asp-action="Index" method="get">
+    <p>
+        Tìm kiếm người dùng: <input type="text" name="SearchString">
+        <input type="submit" value="Tìm kiếm" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>

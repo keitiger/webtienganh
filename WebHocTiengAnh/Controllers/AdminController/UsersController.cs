@@ -19,10 +19,24 @@ namespace WebHocTiengAnh.Controllers.AdminController
         }
 
         // GET: Users
-        public async Task<IActionResult> Index()
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
         {
-            return View(await _context.Users.ToListAsync());
+            return "From [HttpPost]Index: filter on " + searchString;
         }
+        public async Task<IActionResult> Index(string searchString)
+        {
+            var users = from m in _context.Users
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                users = users.Where(s => s.UserName.Contains(searchString));
+            }
+            /*return View(await _context.Users.ToListAsync());*/
+            return View(await users.ToListAsync());
+        }
+
 
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
