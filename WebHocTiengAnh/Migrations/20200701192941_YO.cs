@@ -2,7 +2,7 @@
 
 namespace WebHocTiengAnh.Migrations
 {
-    public partial class updb23a : Migration
+    public partial class YO : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -25,7 +25,9 @@ namespace WebHocTiengAnh.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NameTopic = table.Column<string>(nullable: true)
+                    Icon = table.Column<string>(nullable: true),
+                    NameTopic = table.Column<string>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

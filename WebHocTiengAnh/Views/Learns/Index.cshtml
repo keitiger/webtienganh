@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebHocTiengAnh.Models.Topic>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Css{
+    <link href="~/css/Users/Learns/index.css" rel="stylesheet" />
+}
+<h1>Dit me tuan jo</h1>
+
+<section class="timeline">
+    <ol>
+        @foreach (var item in Model)
+        {
+            <li>
+                <a asp-action="Topic" asp-route-id="@item.Id" class="topic">
+                    <img class="" src="@item.Icon" alt="Alternate Text" />
+                    <h3 class="text-center">@item.NameTopic</h3>
+                </a>
+            </li>
+        }
+        <li></li>
+    </ol>
+
+    <div class="arrows">
+        <button class="arrow arrow__prev disabled" disabled>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow_prev.svg" alt="prev timeline arrow">
+        </button>
+        <button class="arrow arrow__next">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow_next.svg" alt="next timeline arrow">
+        </button>
+    </div>
+
+    @section Scripts{
+        <script src="~/lib/hammer.js"></script>
+        <script src="~/js/Users/Learns/index.js"></script>
+    }
+</section>

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<WebHocTiengAnh.Models.Lesson>
+
+@{
+    ViewData["Title"] = "Skill";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Skill</h1>
+@foreach (var it in Model)
+{
+    <h1>@it.TopicId</h1>
+    <h1>@it.NameLesson</h1>
+    <a asp-action="Exercise" asp-route-id="@it.Id"></a>
+}
+

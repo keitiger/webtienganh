@@ -9,8 +9,8 @@ using WebHocTiengAnh.Models;
 namespace WebHocTiengAnh.Migrations
 {
     [DbContext(typeof(DBcontext))]
-    [Migration("20200616162904_updb23a")]
-    partial class updb23a
+    [Migration("20200701192941_YO")]
+    partial class YO
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -154,6 +154,12 @@ namespace WebHocTiengAnh.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Icon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("NameTopic")
                         .HasColumnType("nvarchar(max)");
