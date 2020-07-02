@@ -2,12 +2,13 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout_For_AdminPage.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Chi tiết</h1>
 
 <div>
-    <h4>Lesson</h4>
+    <h4>Bài học</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -31,6 +32,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.Id">Chỉnh sửa</a> |
     <a asp-action="Index">Back to List</a>
 </div>

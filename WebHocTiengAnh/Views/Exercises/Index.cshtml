@@ -2,13 +2,20 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout_For_AdminPage.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Quản lý câu hỏi</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Tạo mới</a>
 </p>
+<form asp-controller="Exercises" asp-action="Index" method="get">
+    <p>
+        Tìm kiếm câu hỏi: <input type="text" name="SearchString">
+        <input type="submit" value="Tìm kiếm" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -40,12 +47,12 @@
                 @Html.DisplayFor(modelItem => item.TrueAnswer)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ExerciseType.Id)
+                @Html.DisplayFor(modelItem => item.ExerciseType.NameExerciseType)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Chỉnh sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Chi tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
             </td>
         </tr>
 }
