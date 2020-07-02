@@ -9,8 +9,8 @@ using WebHocTiengAnh.Models;
 namespace WebHocTiengAnh.Migrations
 {
     [DbContext(typeof(DBcontext))]
-    [Migration("20200701192941_YO")]
-    partial class YO
+    [Migration("20200702035728_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
