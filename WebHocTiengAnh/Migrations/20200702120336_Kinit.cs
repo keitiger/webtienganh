@@ -2,7 +2,7 @@
 
 namespace WebHocTiengAnh.Migrations
 {
-    public partial class YO : Migration
+    public partial class Kinit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
