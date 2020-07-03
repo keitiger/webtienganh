@@ -9,12 +9,13 @@ namespace WebHocTiengAnh.Models
     {
         public int Id { get; set; }
         public int ExerciseTypeId { get; set; }
+        public int LessonId { get; set; }
         public string Question { get; set; }
         public string Media { get; set; }
         public string TrueAnswer { get; set; }
         public ExerciseType ExerciseType { get; set; }
         public List<Answer> Answers { get; set; }
-        public List<LessonExercise> LessonExercises { get; set; }
+        public Lesson Lesson { get; set; }
 
     }
 }

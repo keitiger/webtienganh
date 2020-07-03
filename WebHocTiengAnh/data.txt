@@ -1,0 +1,58 @@
+﻿USE [WebEng]
+GO
+SET IDENTITY_INSERT [dbo].[Topic] ON 
+GO
+INSERT [dbo].[Topic] ([Id], [Icon], [NameTopic], [IsActive]) VALUES (1, N'https://img.icons8.com/material/4ac144/256/user-male.png', N'Cơ bản', 1)
+GO
+INSERT [dbo].[Topic] ([Id], [Icon], [NameTopic], [IsActive]) VALUES (2, N'https://img.icons8.com/material/4ac144/256/user-male.png', N'Cơ bản', 1)
+GO
+INSERT [dbo].[Topic] ([Id], [Icon], [NameTopic], [IsActive]) VALUES (3, N'https://img.icons8.com/material/4ac144/256/user-male.png', N'Chào hỏi', 1)
+GO
+INSERT [dbo].[Topic] ([Id], [Icon], [NameTopic], [IsActive]) VALUES (6, N'https://img.icons8.com/material/4ac144/256/user-male.png', N'Món ăn', 1)
+GO
+INSERT [dbo].[Topic] ([Id], [Icon], [NameTopic], [IsActive]) VALUES (7, N'https://img.icons8.com/material/4ac144/256/user-male.png', N'Động vật', 1)
+GO
+INSERT [dbo].[Topic] ([Id], [Icon], [NameTopic], [IsActive]) VALUES (8, N'https://img.icons8.com/material/4ac144/256/clock.png', N'Các Sự vật', 1)
+GO
+INSERT [dbo].[Topic] ([Id], [Icon], [NameTopic], [IsActive]) VALUES (9, N'https://img.icons8.com/material/4ac144/256/clock.png', N'Sở hữu', 1)
+GO
+INSERT [dbo].[Topic] ([Id], [Icon], [NameTopic], [IsActive]) VALUES (10, N'https://img.icons8.com/material/4ac144/256/clock.png', N'Con người', 1)
+GO
+INSERT [dbo].[Topic] ([Id], [Icon], [NameTopic], [IsActive]) VALUES (11, N'https://img.icons8.com/material/4ac144/256/clock.png', N'Trang phục', 1)
+GO
+INSERT [dbo].[Topic] ([Id], [Icon], [NameTopic], [IsActive]) VALUES (12, N'https://img.icons8.com/material/4ac144/256/clock.png', N'Hiện tại', 1)
+GO
+INSERT [dbo].[Topic] ([Id], [Icon], [NameTopic], [IsActive]) VALUES (13, N'https://img.icons8.com/material/4ac144/256/clock.png', N'Màu xắc', 1)
+GO
+INSERT [dbo].[Topic] ([Id], [Icon], [NameTopic], [IsActive]) VALUES (14, N'https://img.icons8.com/material/4ac144/256/clock.png', N'Vị trí', 1)
+GO
+SET IDENTITY_INSERT [dbo].[Topic] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Lessons] ON 
+GO
+INSERT [dbo].[Lessons] ([Id], [TopicId], [NameLesson], [RequireExp]) VALUES (1, 1, N'Khởi động', 1)
+GO
+INSERT [dbo].[Lessons] ([Id], [TopicId], [NameLesson], [RequireExp]) VALUES (2, 1, N'Tăng tốc', 2)
+GO
+INSERT [dbo].[Lessons] ([Id], [TopicId], [NameLesson], [RequireExp]) VALUES (4, 1, N'Về đích', 3)
+GO
+INSERT [dbo].[Lessons] ([Id], [TopicId], [NameLesson], [RequireExp]) VALUES (5, 1, N'Ôn tập', 4)
+GO
+INSERT [dbo].[Lessons] ([Id], [TopicId], [NameLesson], [RequireExp]) VALUES (6, 2, N'Khởi động', 5)
+GO
+INSERT [dbo].[Lessons] ([Id], [TopicId], [NameLesson], [RequireExp]) VALUES (7, 2, N'Tăng tốc', 6)
+GO
+INSERT [dbo].[Lessons] ([Id], [TopicId], [NameLesson], [RequireExp]) VALUES (8, 2, N'Về đích', 7)
+GO
+INSERT [dbo].[Lessons] ([Id], [TopicId], [NameLesson], [RequireExp]) VALUES (9, 3, N'Khởi động', 8)
+GO
+INSERT [dbo].[Lessons] ([Id], [TopicId], [NameLesson], [RequireExp]) VALUES (10, 3, N'Tăng tốc', 9)
+GO
+INSERT [dbo].[Lessons] ([Id], [TopicId], [NameLesson], [RequireExp]) VALUES (12, 6, N'Khởi động', 10)
+GO
+INSERT [dbo].[Lessons] ([Id], [TopicId], [NameLesson], [RequireExp]) VALUES (13, 6, N'Tăng tốc', 11)
+GO
+INSERT [dbo].[Lessons] ([Id], [TopicId], [NameLesson], [RequireExp]) VALUES (14, 6, N'Về đích', 12)
+GO
+SET IDENTITY_INSERT [dbo].[Lessons] OFF
+GO

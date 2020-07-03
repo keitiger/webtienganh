@@ -9,8 +9,8 @@ using WebHocTiengAnh.Models;
 namespace WebHocTiengAnh.Migrations
 {
     [DbContext(typeof(DBcontext))]
-    [Migration("20200701192941_YO")]
-    partial class YO
+    [Migration("20200703015737_Kinit")]
+    partial class Kinit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -72,6 +72,9 @@ namespace WebHocTiengAnh.Migrations
                     b.Property<int>("ExerciseTypeId")
                         .HasColumnType("int");
 
+                    b.Property<int>("LessonId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Media")
                         .HasColumnType("nvarchar(max)");
 
@@ -84,6 +87,8 @@ namespace WebHocTiengAnh.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ExerciseTypeId");
+
+                    b.HasIndex("LessonId");
 
                     b.ToTable("Exercises");
                 });
@@ -124,28 +129,6 @@ namespace WebHocTiengAnh.Migrations
                     b.HasIndex("TopicId");
 
                     b.ToTable("Lessons");
-                });
-
-            modelBuilder.Entity("WebHocTiengAnh.Models.LessonExercise", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ExerciseId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LessonId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ExerciseId");
-
-                    b.HasIndex("LessonId");
-
-                    b.ToTable("LessonExercises");
                 });
 
             modelBuilder.Entity("WebHocTiengAnh.Models.Topic", b =>
@@ -219,6 +202,12 @@ namespace WebHocTiengAnh.Migrations
                         .HasForeignKey("ExerciseTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("WebHocTiengAnh.Models.Lesson", "Lesson")
+                        .WithMany("Exercises")
+                        .HasForeignKey("LessonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("WebHocTiengAnh.Models.Lesson", b =>
@@ -226,21 +215,6 @@ namespace WebHocTiengAnh.Migrations
                     b.HasOne("WebHocTiengAnh.Models.Topic", "Topic")
                         .WithMany("Lessons")
                         .HasForeignKey("TopicId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("WebHocTiengAnh.Models.LessonExercise", b =>
-                {
-                    b.HasOne("WebHocTiengAnh.Models.Exercise", "Exercise")
-                        .WithMany("LessonExercises")
-                        .HasForeignKey("ExerciseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebHocTiengAnh.Models.Lesson", "Lesson")
-                        .WithMany("LessonExercises")
-                        .HasForeignKey("LessonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

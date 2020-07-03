@@ -2,7 +2,7 @@
 
 namespace WebHocTiengAnh.Migrations
 {
-    public partial class YO : Migration
+    public partial class Kinit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -49,28 +49,6 @@ namespace WebHocTiengAnh.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Exercises",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ExerciseTypeId = table.Column<int>(nullable: false),
-                    Question = table.Column<string>(nullable: true),
-                    Media = table.Column<string>(nullable: true),
-                    TrueAnswer = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Exercises", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Exercises_ExerciseTypes_ExerciseTypeId",
-                        column: x => x.ExerciseTypeId,
-                        principalTable: "ExerciseTypes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Lessons",
                 columns: table => new
                 {
@@ -92,45 +70,28 @@ namespace WebHocTiengAnh.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Answers",
+                name: "Exercises",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ExerciseId = table.Column<int>(nullable: false),
-                    AnswerText = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Answers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Answers_Exercises_ExerciseId",
-                        column: x => x.ExerciseId,
-                        principalTable: "Exercises",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "LessonExercises",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ExerciseTypeId = table.Column<int>(nullable: false),
                     LessonId = table.Column<int>(nullable: false),
-                    ExerciseId = table.Column<int>(nullable: false)
+                    Question = table.Column<string>(nullable: true),
+                    Media = table.Column<string>(nullable: true),
+                    TrueAnswer = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LessonExercises", x => x.Id);
+                    table.PrimaryKey("PK_Exercises", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_LessonExercises_Exercises_ExerciseId",
-                        column: x => x.ExerciseId,
-                        principalTable: "Exercises",
+                        name: "FK_Exercises_ExerciseTypes_ExerciseTypeId",
+                        column: x => x.ExerciseTypeId,
+                        principalTable: "ExerciseTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_LessonExercises_Lessons_LessonId",
+                        name: "FK_Exercises_Lessons_LessonId",
                         column: x => x.LessonId,
                         principalTable: "Lessons",
                         principalColumn: "Id",
@@ -163,6 +124,26 @@ namespace WebHocTiengAnh.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Answers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ExerciseId = table.Column<int>(nullable: false),
+                    AnswerText = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Answers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Answers_Exercises_ExerciseId",
+                        column: x => x.ExerciseId,
+                        principalTable: "Exercises",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Answers_ExerciseId",
                 table: "Answers",
@@ -174,13 +155,8 @@ namespace WebHocTiengAnh.Migrations
                 column: "ExerciseTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LessonExercises_ExerciseId",
-                table: "LessonExercises",
-                column: "ExerciseId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_LessonExercises_LessonId",
-                table: "LessonExercises",
+                name: "IX_Exercises_LessonId",
+                table: "Exercises",
                 column: "LessonId");
 
             migrationBuilder.CreateIndex(
@@ -205,22 +181,19 @@ namespace WebHocTiengAnh.Migrations
                 name: "Answers");
 
             migrationBuilder.DropTable(
-                name: "LessonExercises");
-
-            migrationBuilder.DropTable(
                 name: "UserLessons");
 
             migrationBuilder.DropTable(
                 name: "Exercises");
 
             migrationBuilder.DropTable(
-                name: "Lessons");
-
-            migrationBuilder.DropTable(
                 name: "Users");
 
             migrationBuilder.DropTable(
                 name: "ExerciseTypes");
+
+            migrationBuilder.DropTable(
+                name: "Lessons");
 
             migrationBuilder.DropTable(
                 name: "Topic");

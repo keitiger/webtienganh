@@ -3,13 +3,22 @@
 @{
     ViewData["Title"] = "Skill";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var topic = ViewBag.topic;
 }
 
-<h1>Skill</h1>
-@foreach (var it in Model)
-{
-    <h1>@it.TopicId</h1>
-    <h1>@it.NameLesson</h1>
-    <a asp-action="Exercise" asp-route-id="@it.Id"></a>
+@section Css{
+    <link href="~/css/Users/Learns/topic.css" rel="stylesheet" />
 }
 
+<h1><a class="fa fa-arrow-left prev" title="Trở về" aria-hidden="true" asp-action="Index"></a>Chủ đề: @topic</h1>
+
+<div class="row row-topic">
+
+    @foreach (var it in Model)
+    {
+        <div class="text-center col-xs-12 col-sm-6 col-md-6 col-lg-4 lesson">
+            <a asp-action="Excercise" asp-route-id="@it.Id"> @it.NameLesson</a>
+        </div>
+    }
+
+</div>
