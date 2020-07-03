@@ -47,7 +47,7 @@ namespace WebHocTiengAnh.Controllers.AdminController
         // GET: Lessons/Create
         public IActionResult Create()
         {
-            ViewData["TopicId"] = new SelectList(_context.Topics, "Id", "Id");
+            ViewData["TopicId"] = new SelectList(_context.Topics, "Id", "NameTopic");
             return View();
         }
 

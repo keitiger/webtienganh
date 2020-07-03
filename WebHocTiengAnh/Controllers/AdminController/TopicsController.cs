@@ -17,6 +17,8 @@ namespace WebHocTiengAnh.Controllers.AdminController
         {
             _context = context;
         }
+
+        // GET: Topics
         [HttpPost]
         public string Index(string searchString, bool notUsed)
         {
@@ -26,13 +28,13 @@ namespace WebHocTiengAnh.Controllers.AdminController
         public async Task<IActionResult> Index(string searchString)
         {
             var topics = from m in _context.Topics
-                            select m;
+                         select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 topics = topics.Where(s => s.NameTopic.Contains(searchString)); ;
             }
-           
+
             return View(await topics.ToListAsync());
             /*return View(await _context.Topics.ToListAsync());*/
         }
@@ -66,7 +68,7 @@ namespace WebHocTiengAnh.Controllers.AdminController
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NameTopic")] Topic topic)
+        public async Task<IActionResult> Create([Bind("Id,Icon,NameTopic,IsActive")] Topic topic)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +100,7 @@ namespace WebHocTiengAnh.Controllers.AdminController
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NameTopic")] Topic topic)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Icon,NameTopic,IsActive")] Topic topic)
         {
             if (id != topic.Id)
             {

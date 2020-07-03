@@ -61,7 +61,8 @@ namespace WebHocTiengAnh.Controllers.AdminController
         // GET: Exercises/Create
         public IActionResult Create()
         {
-            ViewData["ExerciseTypeId"] = new SelectList(_context.ExerciseTypes, "Id", "Id");
+            ViewData["NameExerciseType"] = new SelectList(_context.ExerciseTypes, "Id", "NameExerciseType");
+            /*ViewData["ExerciseTypeId"] = new SelectList(_context.ExerciseTypes, "Id", "Id");*/
             return View();
         }
 
