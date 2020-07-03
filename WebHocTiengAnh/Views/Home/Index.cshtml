@@ -2,7 +2,7 @@
 @{
     Layout = null;
 }
-
+@using Microsoft.AspNetCore.Http;
 <!doctype html>
 <html lang="en">
 <head>
@@ -94,12 +94,12 @@
             <div class="container">
                 <div class="banner_content text-center ">
                     <h3>Học ngoại ngữ miễn phí<br />nhanh nhất thế giới</h3>
-                    <a class="main_btn" href="#">BẮT ĐẦU</a>
+                    <a class="main_btn" asp-controller="Users" asp-action="Login">BẮT ĐẦU</a>
                     <button type="button" name="" id="" class="btn_reg btn btn-primary btn-lg btn-block">TÔI CHƯA CÓ TÀI KHOẢN</button>
                 </div>
                 <div class="container content_preamble">
                     <h4>
-                        Chúng tôi cung cấp cách học tiếng anh
+                        @Context.Session.GetString("user"),Chúng tôi cung cấp cách học tiếng anh
                         <br> bằng các phương pháp phong phú, Giúp bạn <br>
                         cải thiện trình độ một cách nhanh chóng và hoàn toán <br>
                         miễn phí
@@ -450,8 +450,10 @@
                         <img class="img-fluid" src="~/img/latest-blog/l-blog-1.jpg" alt="">
                         <a class="date" href="#">25 October, 2018  |  By Mark Wiens</a>
                         <a href="single-blog.html"><h4>Trao đổi bí quyết học tiếng anh cực nhanh với Giáo sư Alexander Kien</h4></a>
-                        <p>Giáo sư Kiên từ trường đại học Bôn ba đã dành một chút thời gian quý báu của mình để chia sẻ về hành trình
-                        học tiếng anh của mình!</p>
+                        <p>
+                            Giáo sư Kiên từ trường đại học Bôn ba đã dành một chút thời gian quý báu của mình để chia sẻ về hành trình
+                            học tiếng anh của mình!
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -459,8 +461,10 @@
                         <img class="img-fluid" src="~/img/latest-blog/l-blog-2.jpg" alt="">
                         <a class="date" href="#">25 October, 2018  |  By Mark Wiens</a>
                         <a href="single-blog.html"><h4>Kiên Đầu Gấu chia sẻ về những trải nghiệm học tiếng anh trên EngSwift</h4></a>
-                        <p>Tôi bị mù màu từ nhỏ, sau khi trải nghiệm học tiếng anh trên EngSwift thì trình độ tiếng anh của tôi
-                        đã lên rất nhanh, còn mù màu thì tôi vẫn bị</p>
+                        <p>
+                            Tôi bị mù màu từ nhỏ, sau khi trải nghiệm học tiếng anh trên EngSwift thì trình độ tiếng anh của tôi
+                            đã lên rất nhanh, còn mù màu thì tôi vẫn bị
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">

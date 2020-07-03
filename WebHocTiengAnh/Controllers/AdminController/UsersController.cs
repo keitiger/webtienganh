@@ -6,12 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebHocTiengAnh.Models;
+using Microsoft.AspNetCore.Session;
+using Microsoft.AspNetCore.Http;
 
 namespace WebHocTiengAnh.Controllers.AdminController
 {
     public class UsersController : Controller
     {
         private readonly DBcontext _context;
+        
 
         public UsersController(DBcontext context)
         {
@@ -162,5 +165,41 @@ namespace WebHocTiengAnh.Controllers.AdminController
         {
             return _context.Users.Any(e => e.Id == id);
         }
+        //Login
+        
+        public IActionResult Login()
+        {
+           
+            return View();
+        }
+
+        
+        [HttpPost]
+        public ActionResult Validate(User user)
+        {
+       
+            var _user =  _context.Users.Where(s => s.UserName == user.UserName);
+            if (_user.Any())
+            {
+                if (_user.Where(s => s.Password == user.Password).Any())
+                {
+                    
+                    HttpContext.Session.SetString("user", user.UserName);
+                    return Json(new { status = true, message = "Login Successfull!" });
+                    //HttpContext.Session.SetString("username", user.UserName);
+
+                }
+                else
+                {
+                    return Json(new { status = false, message = "Invalid Password!" });
+                }
+            }
+            else
+            {
+                return Json(new { status = false, message = "Invalid Email!" });
+            }
+        }
+        
+
     }
 }
