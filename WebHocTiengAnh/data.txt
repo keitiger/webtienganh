@@ -56,3 +56,312 @@ INSERT [dbo].[Lessons] ([Id], [TopicId], [NameLesson], [RequireExp]) VALUES (14,
 GO
 SET IDENTITY_INSERT [dbo].[Lessons] OFF
 GO
+
+SET IDENTITY_INSERT [dbo].[ExerciseTypes] ON 
+
+GO
+INSERT [dbo].[ExerciseTypes] ([Id], [NameExerciseType]) VALUES (1, N'Trắc nghiệm')
+GO
+INSERT [dbo].[ExerciseTypes] ([Id], [NameExerciseType]) VALUES (2, N'Sắp xếp câu')
+GO
+SET IDENTITY_INSERT [dbo].[ExerciseTypes] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Exercises] ON 
+
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (1, 1, 1, N'Apple là gì', N'data:image/jpeg;base64,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', N'quả táo')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (2, 1, 1, N'Banana là gì', N'https://www.google.com/url?sa=i&url=https%3A%2F%2Fgiongcaytrong.org%2Fcay-giong-an-qua%2Fcay-giong-chuoi-tieu-hong-giong-cay-mo-nguon-goc-ro-rang.html&psig=AOvVaw0k5cXi0pgr3ce4OxkGQeQe&ust=1593832032213000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKCrz5ONsOoCFQAAAAAdAAAAABAD', N'quả chuối')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (4, 1, 1, N'
+Watermelon là gì', N'https://www.google.com/url?sa=i&url=https%3A%2F%2Fdungcunongnghiep.vn%2Fdua-hau-f1-tieu-long-tn-1184-id39.html&psig=AOvVaw3SZVRTWDBi1pDEve4dqyDX&ust=1593832226123000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOCA2O-NsOoCFQAAAAAdAAAAABAD', N'quả dưa hấu')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (5, 1, 2, N'.....................	do you do when it is hot?', NULL, N'what')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (6, 1, 2, N'How ..........................	bananas are there in the fridge?', NULL, N'many')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (7, 1, 2, N'The Red River is the ........................		in Viet Nam.', NULL, N'longer')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (10, 1, 4, N'There isn‟t .......................	milk in the bottle.', NULL, N'any')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (11, 1, 4, N'I‟d like some rice. I‟m ................................', NULL, N'hungry')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (12, 1, 4, N'.My friends usually go ........................		in the river.', NULL, N'swimming')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (13, 1, 5, N'How much is a .....................	of toothpaste ?', NULL, N'can')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (14, 1, 5, N'It‟s very cold in the .................................', NULL, N'winter')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (15, 1, 5, N'What about ....................................		table tennis ?', NULL, N' playing')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (24, 1, 6, N'…………..is a teacher ', NULL, N'she')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (26, 1, 6, N'. ……….your book on page 16 , please .', NULL, N'open')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (27, 1, 6, N'…………do you live ?', NULL, N'where')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (28, 1, 7, N'I live ……….. Le Loi Street.', NULL, N'on')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (30, 1, 7, N'Where ………..he live ?', NULL, N'does')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (31, 1, 7, N'Fifteen plus five equals', NULL, N'nineteen')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (32, 1, 8, N'What is your name ?', NULL, N'His name is Ba')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (33, 1, 8, N'Where is she ?', NULL, N'She is in her classroom ')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (34, 1, 8, N'vWhere does he live ?', NULL, N'He lives on Le Loi Street')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (35, 1, 9, N'………..are you ? I „m fine , thank you ', NULL, N'How ')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (36, 1, 9, N'………students are there in your class ', NULL, N'How many')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (37, 1, 9, N'She lives with…………family', NULL, N'he')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (38, 1, 10, N'How many ………. are there in your family ', NULL, N'people')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (40, 1, 10, N'Lan …..on Nguyen Hue Street', NULL, N'lives')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (41, 1, 10, N'This is Nga . ……..school is big ', NULL, N'His')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (42, 1, 11, N'That is ……. house', NULL, N'Long')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (43, 1, 11, N'…………do you get up ? _ At five ', NULL, N'What time')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (44, 1, 11, N'How many ……….. are there in your classroom', NULL, N'chaires')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (45, 1, 12, N'She listens to ……….in the evening ', NULL, N'books')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (46, 1, 12, N'They go ………..at 5: pm', NULL, N'school')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (47, 1, 12, N'80.	Hoa and Lan ……….. games every afternoon', NULL, N'play')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (48, 1, 13, N'We watch …..every evening ', NULL, N'music')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (49, 1, 13, N'What do you do every day', NULL, N'We go to school  ')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (51, 1, 13, N'What time does Lan have breakfast?', NULL, N'At six o‟clock ')
+GO
+INSERT [dbo].[Exercises] ([Id], [ExerciseTypeId], [LessonId], [Question], [Media], [TrueAnswer]) VALUES (55, 1, 13, N'There is a park ………our school ', NULL, N'between')
+GO
+SET IDENTITY_INSERT [dbo].[Exercises] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Answers] ON 
+
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (1, 1, N'quả chuối')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (2, 1, N'quả nhãn')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (3, 1, N'quả chuối')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (5, 3, N'quả táo')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (6, 3, N'quả mít')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (7, 3, N'quả nhãn')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (8, 4, N'quả táo')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (9, 4, N'quả nhãn')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (10, 4, N'quả chuối')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (13, 5, N'Who')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (14, 5, N'When')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (15, 5, N'Where')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (16, 6, N'much')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (17, 6, N'long')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (18, 6, N'often')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (19, 7, N'very long')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (20, 7, N'long')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (21, 7, N'longest')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (22, 10, N'an')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (23, 10, N'a')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (24, 10, N'some')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (25, 11, N'hot')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (26, 11, N'thirsty')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (27, 11, N'full')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (28, 12, N'sailing')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (29, 12, N'walking')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (30, 12, N'camping')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (31, 13, N'bar')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (32, 13, N' box')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (33, 13, N'can')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (34, 14, N'summer')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (35, 14, N'fall')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (36, 14, N'spring')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (37, 15, N'play')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (38, 15, N'plays')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (39, 24, N'she')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (40, 24, N'it')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (41, 24, N'i')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (42, 26, N'Close')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (43, 26, N'Read')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (44, 26, N'Listen')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (45, 27, N'Who')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (46, 27, N'What')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (47, 28, N'how')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (48, 30, N'do')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (49, 30, N'is')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (50, 30, N'are')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (51, 31, N'nineteen')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (52, 31, N'eighteen')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (53, 31, N'twelve')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (54, 32, N'His name is Ba')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (55, 32, N'Her name is Ba')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (56, 32, N'Its name is Ba')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (57, 33, N'She is Chi')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (58, 33, N'She is fine')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (59, 33, N'She is twelve')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (60, 34, N'He live on Le Loi Street')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (61, 34, N'He lives at Le Loi Street ')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (62, 34, N'He live in Le Loi Street')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (63, 35, N'How old')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (64, 35, N'what')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (65, 35, N'where')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (66, 36, N'How much')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (67, 36, N'what')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (68, 36, N'how')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (69, 37, N'he')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (70, 37, N'i')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (71, 37, N'she')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (72, 38, N'students')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (73, 38, N'teachers')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (74, 38, N'peoples')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (76, 40, N'live')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (77, 40, N'is')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (78, 40, N'are')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (79, 41, N'his')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (80, 41, N'your')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (81, 41, N'she')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (82, 42, N'long')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (83, 42, N'he')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (84, 42, N'long is')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (85, 43, N'where ')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (86, 43, N'what')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (87, 43, N'how many')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (88, 44, N'do')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (89, 44, N'are')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (90, 44, N'are there')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (91, 45, N'books')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (92, 45, N'homework')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (93, 45, N'television')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (94, 46, N'school')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (95, 46, N'class')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (96, 46, N'to home')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (97, 47, N'plays')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (98, 47, N'goes')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (99, 47, N'listens')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (100, 48, N'music')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (101, 48, N'history')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (102, 48, N'breakfast')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (103, 49, N'We go home')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (104, 49, N'We get up at six')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (105, 49, N'We have classes at seven')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (107, 51, N'After school')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (108, 51, N'In the afternoon')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (109, 51, N'On Sunday')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (110, 55, N'between')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (111, 55, N'to the left  ')
+GO
+INSERT [dbo].[Answers] ([Id], [ExerciseId], [AnswerText]) VALUES (112, 55, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Answers] OFF
+GO

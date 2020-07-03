@@ -4,6 +4,68 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var idlesson = ViewBag.idlesson;
 }
+@section Css{
+    <link href="~/css/Users/Learns/Exercise.css" rel="stylesheet" />
+}
+<a asp-action="index">Trang chủ</a>
+<h1 class="d-none">Excercise @idlesson</h1>
 
-<h1>Excercise</h1>
 
+
+<div id="demo" class="carousel slide" data-ride="carousel" data-interval="false">
+
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+
+        @foreach (var ex in Model)
+        {
+            <div class="carousel-item">
+                <form class="exercise" action="CheckAnswer">
+                    <fieldset>
+                        @*<h2 class="d-none">@ex.Id</h2>*@
+                        <legend>@ex.Question</legend>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="@ex.Id">@ex.Answer1
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="@ex.Id">@ex.Answer2
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="@ex.Id">@ex.Answer3
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="@ex.Id">@ex.TrueAnswer
+                            </label>
+                        </div>
+                        <br>
+                        <input type="button" class="checkanswer"value="Kiểm tra" />
+                    </fieldset>
+                </form>
+            </div>
+        }
+
+    </div>
+
+
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+
+</div>
+
+@section Scripts{
+    <script src="~/js/Users/Learns/exercise.js"></script>
+    <script>
+
+    </script>
+}

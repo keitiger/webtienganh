@@ -15,7 +15,6 @@ namespace WebHocTiengAnh.Models
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new AnswerConfiguration());
             modelBuilder.ApplyConfiguration(new ExerciseConfiguration());
             modelBuilder.ApplyConfiguration(new ExerciseTypeConfiguration());
             modelBuilder.ApplyConfiguration(new LessonConfiguration());
@@ -26,7 +25,6 @@ namespace WebHocTiengAnh.Models
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Topic> Topics { get; set; }
-        public DbSet<Answer> Answers { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
         public DbSet<ExerciseType> ExerciseTypes { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
