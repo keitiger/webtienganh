@@ -40,6 +40,7 @@ namespace WebHocTiengAnh
             services.AddDbContext<DBcontext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("WebEng")));
             services.AddMvc();
+            services.AddSession();
             //End-Tuan
         }
 
@@ -58,9 +59,8 @@ namespace WebHocTiengAnh
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -68,7 +68,12 @@ namespace WebHocTiengAnh
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                   
             });
+
+
+
+
         }
     }
 }
