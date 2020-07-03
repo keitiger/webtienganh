@@ -24,7 +24,13 @@ namespace WebHocTiengAnh.Controllers.UserController
 
         public async Task<IActionResult> Topic(int? id)
         {
+            ViewBag.topic = _context.Topics.FirstOrDefault(x=>x.Id == id).NameTopic;
             return View(await _context.Lessons.Where(x => x.TopicId == id).ToListAsync());
+        }
+        public async Task<IActionResult> Excercise(int? id)
+        {
+            ViewBag.idlesson = id;
+            return View(await _context.Exercises.ToListAsync());
         }
     }
 }

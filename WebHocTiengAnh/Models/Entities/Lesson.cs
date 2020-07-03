@@ -13,7 +13,7 @@ namespace WebHocTiengAnh.Models
         public string NameLesson { get; set; }
         public int RequireExp { get; set; }
         public Topic Topic { get; set; }
-        public List<LessonExercise> LessonExercises { get; set; }
+        public List<Exercise> Exercises { get; set; }
         public List<UserLesson> UserLessons { get; set; }
     }
 }
